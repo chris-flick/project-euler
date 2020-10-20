@@ -1,0 +1,7 @@
+C:\project-euler\multiples_of_3_and_5\bin\Debug\multiples_of_3_and_5.exe.config
+C:\project-euler\multiples_of_3_and_5\bin\Debug\multiples_of_3_and_5.exe
+C:\project-euler\multiples_of_3_and_5\bin\Debug\multiples_of_3_and_5.pdb
+C:\project-euler\multiples_of_3_and_5\obj\Debug\multiples_of_3_and_5.csprojAssemblyReference.cache
+C:\project-euler\multiples_of_3_and_5\obj\Debug\multiples_of_3_and_5.csproj.CoreCompileInputs.cache
+C:\project-euler\multiples_of_3_and_5\obj\Debug\multiples_of_3_and_5.exe
+C:\project-euler\multiples_of_3_and_5\obj\Debug\multiples_of_3_and_5.pdb
