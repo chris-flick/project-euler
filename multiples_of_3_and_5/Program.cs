@@ -8,6 +8,11 @@ namespace multiples_of_3_and_5
     {
     class Program {
 
+        /// <summary>
+        /// Iteratively sums multiples of 3 and 5, while also making sure to exclude the overlapping of numbers that are multiples of both 3 and 5
+        /// </summary>
+        /// <param name="n">the number to sum all multiples of 3 and 5 for</param>
+        /// <returns></returns>
         static double bruteForceSummation(int n) {
             int summation = 0;
 
@@ -17,6 +22,8 @@ namespace multiples_of_3_and_5
                 int currentMultipleOf3 = k * 3;
                 int currentMultipleOf5 = k * 5;
 
+                // add multiple of 3 to sum. 
+                // Has a check to make sure this number isn't also a multiple of 5 in order to prevent summing the same number twice
                 if (currentMultipleOf3 < n && currentMultipleOf3 % 5 != 0) {
                     summation += currentMultipleOf3;
                 }
