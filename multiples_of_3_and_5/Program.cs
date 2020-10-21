@@ -43,11 +43,38 @@ namespace multiples_of_3_and_5
         }
 
         /// <summary>
+        /// This solution utilizes this summation theorem: https://en.wikipedia.org/wiki/1_%2B_2_%2B_3_%2B_4_%2B_%E2%8B%AF
+        /// 
+        /// Since Sn = (n * (n+1)) / 2,
+        /// we can multiple the formula for Sn by 3 or 5 to sum only multiples of 3 or 5, 
+        /// but then we have to divide n by 3 or 5 in order to stay within the original boundaries.
+        /// 
+        /// Sn = 1 + 2 + 3 + ... + (n - 1) + n = (n * (n+1)) / 2
+        /// 3Sn = 3 + 6 + 9 + ... + 3(n - 1) + 3n = 3 * (n * (n+1)) / 2
+        /// 
+        /// To stay within boundaries of the original n, we need to divide n by 3. Instead of iterating all the way to 1000, we would iterate to 1000 / 3,
+        /// 3 * ( (n/3) * ( (n/3) + 1) ) / 2
+        /// 
+        /// Ex: 3 * ( (1000/3) * ( (1000/3) + 1) ) / 2
+        /// 
+        /// </summary>
+        /// <param name="n"></param>
+        /// <param name="multiple"></param>
+        /// <returns></returns>
+        static double summationTheorem(int n, int multiple) {
+            double summation = 0;
+            int reducedN = (int) n / multiple;
+
+            summation = multiple * ((reducedN * (reducedN + 1)) / 2);
+
+            return summation;
+
+        }
+
+        /// <summary>
         /// 
         /// If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
         /// Find the sum of all the multiples of 3 or 5 below 1000.
-        /// 
-        /// https://en.wikipedia.org/wiki/1_%2B_2_%2B_3_%2B_4_%2B_%E2%8B%AF
         /// 
         /// </summary>
         /// <param name="args">The number to find the sum of all the multiples of 3 or 5 for.</param>
@@ -77,6 +104,10 @@ namespace multiples_of_3_and_5
 
             double summation = bruteForceSummation(number);
             Console.WriteLine(summation);
+
+            // need to sum (multiples of 3 + multiples of 5 - multiples of 15) to remove duplicates counts of numbers that are multiples of both 3 and 5
+            double sn = summationTheorem(1000, 3) + summationTheorem(1000, 5) - summationTheorem(1000, 15);
+            Console.WriteLine(sn);
 
             return 0;
 
