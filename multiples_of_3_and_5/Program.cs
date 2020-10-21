@@ -8,10 +8,39 @@ namespace multiples_of_3_and_5
     {
     class Program {
 
+        static double bruteForceSummation(int n) {
+            int summation = 0;
+
+            int k = 1;
+            while (k < n) {
+
+                int currentMultipleOf3 = k * 3;
+                int currentMultipleOf5 = k * 5;
+
+                if (currentMultipleOf3 < n && currentMultipleOf3 % 5 != 0) {
+                    summation += currentMultipleOf3;
+                }
+
+                if (currentMultipleOf5 < n) {
+                    summation += currentMultipleOf5;
+                }
+
+                if (currentMultipleOf3 >= n && currentMultipleOf5 >= n) {
+                    break;
+                }
+
+                k++;
+            }
+
+            return summation;
+        }
+
         /// <summary>
         /// 
         /// If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
         /// Find the sum of all the multiples of 3 or 5 below 1000.
+        /// 
+        /// https://en.wikipedia.org/wiki/1_%2B_2_%2B_3_%2B_4_%2B_%E2%8B%AF
         /// 
         /// </summary>
         /// <param name="args">The number to find the sum of all the multiples of 3 or 5 for.</param>
@@ -39,7 +68,8 @@ namespace multiples_of_3_and_5
                 return -1;
             }
 
-            Console.WriteLine(number);
+            double summation = bruteForceSummation(number);
+            Console.WriteLine(summation);
 
             return 0;
 
